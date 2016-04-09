@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Qrcode</string>
+
+    <string name="hello_create_fragment">Hello create fragment</string>
+    <string name="hello_scan_fragment">Hello scan fragment</string>
+    <string name="hello_history_fragment">Hello history fragment</string>
+    <string name="hello_settings_ragment">Hello settings fragment</string>
+</resources>
