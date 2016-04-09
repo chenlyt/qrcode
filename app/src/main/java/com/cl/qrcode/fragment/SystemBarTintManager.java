@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cl.qrcode;
+package com.cl.qrcode.fragment;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

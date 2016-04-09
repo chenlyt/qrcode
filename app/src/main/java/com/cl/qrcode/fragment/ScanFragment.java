@@ -1,4 +1,4 @@
-package com.cl.qrcode;
+package com.cl.qrcode.fragment;
 
 
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.cl.qrcode.R;
 import com.cl.qrcode.activity.CaptureActivity;
 
 

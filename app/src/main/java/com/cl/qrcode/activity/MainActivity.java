@@ -2,7 +2,6 @@ package com.cl.qrcode.activity;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -14,13 +13,13 @@ import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.cl.qrcode.CreateFragment;
-import com.cl.qrcode.HistoryFragment;
-import com.cl.qrcode.MyViewPagerAdapter;
+import com.cl.qrcode.fragment.CreateFragment;
+import com.cl.qrcode.fragment.HistoryFragment;
+import com.cl.qrcode.adapter.MyViewPagerAdapter;
 import com.cl.qrcode.R;
-import com.cl.qrcode.ScanFragment;
-import com.cl.qrcode.SettingsFragment;
-import com.cl.qrcode.SystemBarTintManager;
+import com.cl.qrcode.fragment.ScanFragment;
+import com.cl.qrcode.fragment.SettingsFragment;
+import com.cl.qrcode.fragment.SystemBarTintManager;
 
 import java.util.ArrayList;
 import java.util.List;

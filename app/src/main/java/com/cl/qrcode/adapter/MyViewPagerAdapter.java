@@ -1,4 +1,4 @@
-package com.cl.qrcode;
+package com.cl.qrcode.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
