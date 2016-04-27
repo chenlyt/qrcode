@@ -1,50 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
 
     <RadioGroup
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:background="#C00">
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="scan"
+            android:button="@null"
+            android:contentDescription="@string/scan"
+            android:drawableTop="@drawable/tab_scan_image"
+            android:gravity="center"
+            android:text="@string/scan"
             android:textColor="#FFF" />
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="create"
+            android:button="@null"
+            android:contentDescription="@string/create"
+            android:drawableTop="@drawable/tab_create_image"
+            android:gravity="center"
+            android:text="@string/create"
             android:textColor="#FFF" />
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="history"
+            android:button="@null"
+            android:contentDescription="@string/history"
+            android:drawableTop="@drawable/tab_history_image"
+            android:gravity="center"
+            android:text="@string/history"
             android:textColor="#FFF" />
 
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="settings"
+            android:button="@null"
+            android:contentDescription="@string/settings"
+            android:drawableTop="@drawable/tab_settings_image"
+            android:gravity="center"
+            android:text="@string/settings"
             android:textColor="#FFF" />
     </RadioGroup>
-</LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_above="@id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

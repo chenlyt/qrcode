@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
+    android:orientation="horizontal">
+    <EditText
+        android:id="@+id/create_item_edit"
+        android:drawablePadding="16dp"
+        android:textColorHint="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

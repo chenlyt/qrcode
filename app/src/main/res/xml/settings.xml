@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/settings_base">
+        <SwitchPreference
+            android:icon="@mipmap/preference_icon_ring"
+            android:key="software_ring"
+            android:title="@string/software_ring" />
+        <SwitchPreference
+            android:icon="@mipmap/preference_icon_vibrate"
+            android:key="scan_vibrate"
+            android:title="@string/scan_vibrate" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_other">
+        <PreferenceScreen
+            android:icon="@mipmap/preference_icon_share"
+            android:key="share"
+            android:title="@string/share"
+            android:widgetLayout="@layout/widget_layout" />
+        <PreferenceScreen
+            android:icon="@mipmap/preference_icon_feedback"
+            android:key="feedback"
+            android:title="@string/feedback"
+            android:widgetLayout="@layout/widget_layout" />
+    </PreferenceCategory>
+</PreferenceScreen>

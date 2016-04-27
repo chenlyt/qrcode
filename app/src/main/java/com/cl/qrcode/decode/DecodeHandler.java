@@ -53,7 +53,10 @@ public class DecodeHandler extends Handler {
 
         } else if (message.what == R.id.quit) {
             running = false;
-            Looper.myLooper().quit();
+            Looper looper = Looper.myLooper();
+            if (looper != null) {
+                looper.quit();
+            }
 
         }
     }

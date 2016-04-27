@@ -1,8 +1,69 @@
 <resources>
-    <string name="app_name">Qrcode</string>
+    <string name="app_name">二维码</string>
+    <!--   Strings for possible PreferenceActivity Back/Next buttons
+      -->
+    <string name="back_button_label">Back</string>
+    <string name="next_button_label">Next</string>
+    - <!--  Optional button to Skip a PreferenceActivity [CHAR LIMIT=20]
+  -->
+    <string name="skip_button_label">Skip</string>
 
     <string name="hello_create_fragment">Hello create fragment</string>
     <string name="hello_scan_fragment">Hello scan fragment</string>
     <string name="hello_history_fragment">Hello history fragment</string>
     <string name="hello_settings_ragment">Hello settings fragment</string>
+    <string name="scan">扫描</string>
+    <string name="create">生成</string>
+    <string name="history">历史</string>
+    <string name="settings">设置</string>
+    <string name="software_ring">软件音效</string>
+    <string name="scan_vibrate">扫描振动</string>
+    <string name="settings_base">基本设置</string>
+    <string name="settings_other">其他设置</string>
+    <string name="share">分享</string>
+    <string name="feedback">意见反馈</string>
+    <string name="url">网址</string>
+    <string name="url_hint">输入或粘贴网址</string>
+    <string name="email_addressee_hint">收件人</string>
+    <string name="email_content_hint">邮件内容</string>
+    <string name="email_title_hint">邮件标题</string>
+    <string name="wifi_ssid_hint">SSID</string>
+    <string name="wifi_encrypt_hint">WPA/WPA2;WEP;不加密</string>
+    <string name="wifi_password_hint">密码</string>
+    <string name="text_hint">输入或粘贴文本</string>
+    <string name="contact_name">姓名</string>
+    <string name="contact_company">公司</string>
+    <string name="contact_phone">电话</string>
+    <string name="contact_email">邮箱</string>
+    <string name="contact_address">地址</string>
+    <string name="contact_url">网址</string>
+    <string name="contact_memo">备注</string>
+    <string name="sms_number">联系人</string>
+    <string name="sms_content">信息内容</string>
+    <string name="location_lat">经度</string>
+    <string name="location_long">纬度</string>
+    <string name="tel_number">电话号码</string>
+    <string name="cart_message">输入条码信息</string>
+    <string name="calendar_activity">主题</string>
+    <string name="calendar_start">开始时间</string>
+    <string name="calendar_end">结束时间</string>
+    <string name="calendar_place">地点</string>
+    <string name="calendar_memo">描述</string>
+
+    <string-array name="titles">
+        <item>生成历史</item>
+        <item>网址</item>
+        <item>邮件</item>
+        <item>无线网络</item>
+        <item>联系人</item>
+        <item>文本</item>
+        <item>手机号码</item>
+        <item>短信</item>
+        <item>地理位置</item>
+        <item>商品</item>
+        <item>日程活动</item>
+        <item>礼物</item>
+    </string-array>
+
+    <string name="create_icon_contentdesc">icon</string>
 </resources>

@@ -1,71 +1,41 @@
 package com.cl.qrcode.activity;
 
-import android.annotation.TargetApi;
-import android.content.Intent;
-import android.os.Build;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.cl.qrcode.R;
+import com.cl.qrcode.adapter.MyViewPagerAdapter;
 import com.cl.qrcode.fragment.CreateFragment;
 import com.cl.qrcode.fragment.HistoryFragment;
-import com.cl.qrcode.adapter.MyViewPagerAdapter;
-import com.cl.qrcode.R;
 import com.cl.qrcode.fragment.ScanFragment;
 import com.cl.qrcode.fragment.SettingsFragment;
-import com.cl.qrcode.fragment.SystemBarTintManager;
+import com.cl.qrcode.provider.Settings;
+import com.cl.qrcode.utils.BeepManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
-    ActionBar mActionBar;
+public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
+
     ViewPager mViewPager;
     MyViewPagerAdapter mAdapter;
     List<Fragment> mFragmentList = new ArrayList<>();
     RadioGroup mTabs;
+    private BeepManager beepManager;
+    private boolean isFirst = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-
-            setTranslucentStatus(true);
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setNavigationBarTintEnabled(true);
-            tintManager.setNavigationBarTintResource(R.color.red);
-            tintManager.setStatusBarTintResource(R.color.colorAccent);
-        }
         setContentView(R.layout.activity_main);
-        initActionbar();
+        beepManager = new BeepManager(this, R.raw.tab);
         initView();
     }
-    @TargetApi(19)
-    private void setTranslucentStatus(boolean on) {
-        Window win = getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
-    }
 
-    private void initActionbar() {
-        mActionBar = getSupportActionBar();
-        if (mActionBar != null) {
-
-        }
-    }
 
     private void initView() {
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -74,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mFragmentList.add(new CreateFragment());
         mFragmentList.add(new HistoryFragment());
         mFragmentList.add(new SettingsFragment());
-        mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(),mFragmentList);
+        mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mFragmentList);
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(this);
         mTabs.setOnCheckedChangeListener(this);
@@ -93,26 +63,36 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (!isFirst) {
+            playRing();
+        }
+        isFirst = false;
         for (int i = 0; i < group.getChildCount(); i++) {
             RadioButton child = (RadioButton) mTabs.getChildAt(i);
             if (checkedId == child.getId()) {
                 mViewPager.setCurrentItem(i, true);
+                if (mActionBar != null) {
+                    mActionBar.setTitle(child.getContentDescription());
+                }
+                child.setTextColor(Color.GREEN);
             }
+            child.setTextColor(Color.WHITE);
+        }
+    }
+
+    public void playRing() {
+        if (Settings.getBoolean(this, Settings.KEY_RING)) {
+            beepManager.playBeepSoundAndVibrate(false);
         }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            Bundle bundle = data.getExtras();
-            String scanResult = bundle.getString("result");
-            ((ScanFragment) mFragmentList.get(0)).printResult(scanResult);
-        }
+    protected void onDestroy() {
+        super.onDestroy();
+        beepManager.close();
     }
 }

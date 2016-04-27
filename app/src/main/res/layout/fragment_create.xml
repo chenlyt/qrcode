@@ -4,10 +4,13 @@
     android:layout_height="match_parent"
     tools:context="com.cl.qrcode.fragment.CreateFragment">
 
-    <TextView
+    <GridView
+        android:id="@+id/gridView"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:verticalSpacing="16dp"
+        android:horizontalSpacing="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/hello_create_fragment" />
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>
